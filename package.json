@@ -1,0 +1,31 @@
+{
+  "name": "nuro-computed-properties",
+  "version": "0.1.1",
+  "description": "A Nuro plugin for efficient computed properties",
+  "main": "./build/dist/nuro-computed-properties.js",
+  "module": "./build/compiled/index.js",
+  "exports": {
+    "require": "./build/dist/nuro-computed-properties.js",
+    "import": "./build/compiled/index.js"
+  },
+  "types": "./build/compiled/index.d.js",
+  "scripts": {
+    "format": "prettier --print-width 100 --no-semi false --single-quote true --write \"./**/*.ts\"",
+    "compile": "tsc",
+    "bundle": "rollup -c",
+    "build": "npm run format && npm run compile && npm run bundle",
+    "start": "npm run build && serve -s"
+  },
+  "files": [
+    "src",
+    "build"
+  ],
+  "author": "John Egan",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "1.19.1",
+    "rollup": "^1.27.13",
+    "serve": "^11.3.2",
+    "typescript": "^4.1.3"
+  }
+}

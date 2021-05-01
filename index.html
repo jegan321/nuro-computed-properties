@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuro Computed Properties Demo</title>
+</head>
+<body>
+  <script src="https://unpkg.com/nuro"></script>
+  <script src="build/dist/nuro-computed-properties.js"></script>
+  <script type="module">
+
+    Nuro.install(NuroComputedProperties)
+
+    let app = Nuro.mount(class {
+      title = "Computed Properties"
+      first = "John"
+      last = "Doe"
+      beforeMount() {
+        this.fullName = this.$computed(function() {
+          let retVal = this.last + ', ' + this.first
+          return retVal
+        })
+      }
+      $template =/*html*/ `
+        <div>
+          <h1>{{title}}</h1>
+          <p>{{fullName()}}</p>
+        </div>
+      `
+    })
+    app.title = "Nuro Computed Properties"
+    app.first = "Jane"
+    app.first = "John"
+    app.first = "Jane"
+    
+  </script>
+</body>
+</html>
